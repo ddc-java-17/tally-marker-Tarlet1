@@ -22,23 +22,23 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-     class IncrementListener implements OnClickListener {
-       @Override
-      public void onClick(View v) {
-        setCounter(counter + 1);
-      }
-    }
 
     Log.d(TAG, "MainActivity::onCreate");
     setContentView(R.layout.activity_main);
     tally = findViewById(R.id.tally);
-    if (savedInstanceState !=null) {
+    if (savedInstanceState != null) {
       setCounter(savedInstanceState.getInt("counter", 0));
     } else {
       setCounter(0);
     }
     Button increment = findViewById(R.id.increment);
-    increment.setOnClickListener(new IncrementListener());
+    OnClickListener incrementListener = new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        setCounter(counter + 1);
+      }
+    };
+    increment.setOnClickListener(incrementListener);
   }
 
   @Override
