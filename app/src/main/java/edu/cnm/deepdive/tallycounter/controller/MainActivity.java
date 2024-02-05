@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
       setCounter(0);
     }
     Button increment = findViewById(R.id.increment);
-    increment.setOnClickListener(this::handleIncrement);
+    //  increment.setOnClickListener(this::handleIncrement);
   }
 
   @Override
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     super.onDestroy();
   }
 
-  private void handleIncrement(View v) {
+  public void handleIncrement(View v) {
     setCounter(counter + 1);
   }
 
